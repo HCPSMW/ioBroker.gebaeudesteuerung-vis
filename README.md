@@ -126,6 +126,11 @@ Please refer to the [`dev-server` documentation](https://github.com/ioBroker/dev
 	Placeholder for the next version (at the beginning of the line):
 	### **WORK IN PROGRESS**
 -->
+
+### **WORK IN PROGRESS**
+
+-   Add
+
 ### 0.0.2 (2023-05-23)
 
 -   (admin) initial release
