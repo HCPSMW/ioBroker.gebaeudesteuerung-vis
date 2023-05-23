@@ -129,6 +129,8 @@ Please refer to the [`dev-server` documentation](https://github.com/ioBroker/dev
 
 ### **WORK IN PROGRESS**
 
+-   Update
+
 ### 0.0.3 (2023-05-23)
 
 -   Add
