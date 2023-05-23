@@ -1,8 +1,21 @@
 {
   "common": {
     "name": "gebaeudesteuerung-vis",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "news": {
+      "0.0.3": {
+        "en": "Add",
+        "de": "Hinzufügen",
+        "ru": "Добавить",
+        "pt": "Adicionar",
+        "nl": "Advocaat",
+        "fr": "Add",
+        "it": "Aggiungi",
+        "es": "Añadir",
+        "pl": "Addd",
+        "uk": "Додати",
+        "zh-cn": "增 编"
+      },
       "0.0.2": {
         "en": "initial release",
         "de": "erstausstrahlung",
