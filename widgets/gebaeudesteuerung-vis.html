@@ -138,67 +138,71 @@
 	%></div>
 </script>
 
-<script type="text/javascript">
+<script
+	type="text/javascript"
+	id="tplGebaeudesteuerung-visHelper2"
+	type="text/ejs"
+	class="vis-tpl"
+	data-vis-prev='<div id="prev_tplGebaeudesteuerung-visHelper2" style="position: relative; text-align: initial;padding: 4px "><div class="vis-widget_prev " style="width: 280px; height: 159px;" > <div class="gebaeudesteuerung-vis-class vis-widget-prev-body " style="padding:2px"> OID: hm-rpc.0.EEQ0006629.1.STATE<br> OID value: true<br> Color: <span style="color: rgb(128, 0, 0);">#800000</span><br> htmlText: <textarea readonly="" style="width:100%">asda</textarea></div>'
+	data-vis-attrs="oid/id;myColor/color;htmlText/text;"
+	data-vis-attrs0="group.extraGebaeudesteuerung-vis;extraAttr"
+	data-vis-set="gebaeudesteuerung-vis"
+	data-vis-type="helper2"
+	data-vis-name="Helper2"
+>
 	function createSVGObjects(objectList) {
 		objectList.forEach(function (object) {
-			var svgElement = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-			svgElement.setAttribute("width", "230");
-			svgElement.setAttribute("height", "210");
+			var scriptElement = document.createElement("script");
+			scriptElement.setAttribute("id", "tplGebaeudesteuerung-visHelper");
+			scriptElement.setAttribute("type", "text/ejs");
+			scriptElement.setAttribute("class", "vis-tpl");
+			scriptElement.setAttribute(
+				"data-vis-prev",
+				'<div id="prev_tplGebaeudesteuerung-visHelper" style="position: relative; text-align: initial;padding: 4px "><div class="vis-widget_prev " style="width: 280px; height: 159px;" > <div class="gebaeudesteuerung-vis-class vis-widget-prev-body " style="padding:2px"> OID: ' +
+					object.oid +
+					"<br> OID value: " +
+					object.oidValue +
+					'<br> Color: <span style="color: ' +
+					object.myColor +
+					';">' +
+					object.myColor +
+					'</span><br> htmlText: <textarea readonly="" style="width:100%">' +
+					object.htmlText +
+					"</textarea></div>",
+			);
+			scriptElement.setAttribute("data-vis-attrs", "oid/id;myColor/color;htmlText/text;");
+			scriptElement.setAttribute("data-vis-attrs0", "group.extraGebaeudesteuerung-vis;extraAttr");
+			scriptElement.setAttribute("data-vis-set", "gebaeudesteuerung-vis");
+			scriptElement.setAttribute("data-vis-type", "helper");
+			scriptElement.setAttribute("data-vis-name", "Helper");
 
-			var widgetBody = document.createElementNS("http://www.w3.org/2000/svg", "g");
-			widgetBody.setAttribute("class", object.class);
-			widgetBody.setAttribute("style", "padding:2px");
+			var divElement = document.createElement("div");
+			divElement.setAttribute("class", "<%== this.data.attr('class') %>");
+			divElement.setAttribute("style", "overflow:visible; width: 230px; height: 210px");
+			divElement.setAttribute("id", "<%= this.data.attr('wid') %>");
 
-			var text1 = document.createElementNS("http://www.w3.org/2000/svg", "text");
-			text1.textContent = "OID: " + object.oid;
-			widgetBody.appendChild(text1);
+			var innerScriptElement = document.createElement("script");
+			innerScriptElement.textContent =
+				"vis.binds['gebaeudesteuerung-vis'].createWidget(this.data.wid, this.view, this.data, this.style);";
 
-			var text2 = document.createElementNS("http://www.w3.org/2000/svg", "text");
-			text2.textContent = "OID value: " + object.oidValue;
-			widgetBody.appendChild(text2);
-
-			var span = document.createElementNS("http://www.w3.org/2000/svg", "span");
-			span.setAttribute("style", "color: " + object.myColor);
-			span.textContent = "Color: " + object.myColor;
-			widgetBody.appendChild(span);
-
-			var text3 = document.createElementNS("http://www.w3.org/2000/svg", "text");
-			text3.textContent = "extraAttr: " + object.extraAttr;
-			widgetBody.appendChild(text3);
-
-			var text4 = document.createElementNS("http://www.w3.org/2000/svg", "text");
-			text4.textContent = "Browser instance: " + object.instance;
-			widgetBody.appendChild(text4);
-
-			var textarea = document.createElementNS("http://www.w3.org/2000/svg", "textarea");
-			textarea.setAttribute("readonly", "readonly");
-			textarea.setAttribute("style", "width: calc(100% - 10px)");
-			textarea.textContent = object.htmlText;
-			widgetBody.appendChild(textarea);
-
-			svgElement.appendChild(widgetBody);
-			document.body.appendChild(svgElement);
+			divElement.appendChild(innerScriptElement);
+			scriptElement.appendChild(divElement);
+			document.body.appendChild(scriptElement);
 		});
 	}
 
 	// Beispielaufruf mit einer Liste von Objekten
 	var objectList = [
 		{
-			class: "gebaeudesteuerung-vis-class",
 			oid: "hm-rpc.0.EEQ0006629.1.STATE",
 			oidValue: true,
 			myColor: "#800000",
-			extraAttr: "Beispielattribut 1",
-			instance: "Beispielinstanz 1",
 			htmlText: "Beispieltext 1",
 		},
 		{
-			class: "gebaeudesteuerung-vis-class",
 			oid: "hm-rpc.0.EEQ0006629.2.STATE",
 			oidValue: false,
 			myColor: "#00FF00",
-			extraAttr: "Beispielattribut 2",
-			instance: "Beispielinstanz 2",
 			htmlText: "Beispieltext 2",
 		},
 	];
