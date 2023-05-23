@@ -31,6 +31,7 @@ class GebaeudesteuerungVis extends utils.Adapter {
   async onReady() {
     this.log.info("config option1: " + this.config.option1);
     this.log.info("config option2: " + this.config.option2);
+    this.log.info("config option3: " + this.config.option3);
     await this.setObjectNotExistsAsync("testVariable", {
       type: "state",
       common: {

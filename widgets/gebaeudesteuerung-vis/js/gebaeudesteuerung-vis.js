@@ -1,7 +1,7 @@
 /*
 	ioBroker.vis gebaeudesteuerung-vis Widget-Set
 
-	version: "0.0.1"
+	version: "0.0.5"
 
 	Copyright 2023 SW
 */
@@ -72,7 +72,7 @@ $.extend(true, systemDictionary, {
 // vis.binds["gebaeudesteuerung-vis"].showVersion();
 
 vis.binds["gebaeudesteuerung-vis"] = {
-	version: "0.0.2",
+	version: "0.0.5",
 	showVersion: function () {
 		if (vis.binds["gebaeudesteuerung-vis"].version) {
 			console.log("Version gebaeudesteuerung-vis: " + vis.binds["gebaeudesteuerung-vis"].version);
@@ -112,9 +112,41 @@ vis.binds["gebaeudesteuerung-vis"] = {
 			}, 100);
 		}
 
-		this.getMembersFromEnum("enum.rooms.og.r204")
+		vis.conn.getEnums("rooms.og", function (err, state) {
+			if (err) {
+				console.error(err + "sdjp");
+			} else {
+				const [key, value] = Object.entries(state)[0];
+
+				// Access the properties within the value object
+				const type = value.type;
+				const common = value.common;
+				const name = common.name;
+				const enabled = common.enabled;
+				const color = common.color;
+				const desc = common.desc;
+				const members = common.members;
+				const icon = common.icon;
+
+				// Print the extracted values
+				console.log("Key:", key);
+				console.log("Type:", type);
+				console.log("Name:", name);
+				console.log("Enabled:", enabled);
+				console.log("Color:", color);
+				console.log("Description:", desc);
+				console.log("Members:", members);
+				console.log("Icon:", icon);
+			}
+		});
+		// Extract the key and value from the parsed object
+
+		this.log.warn("jiofadhi");
+		/*this.getMembersFromEnum("enum.rooms.og.r204")
 			.then((members) => {
 				let promises = members.map((member) => this.createDivForMember(member));
+				console.log("s" + "a");
+				location = "";
 				return Promise.all(promises);
 			})
 			.then((divs) => {
@@ -124,7 +156,7 @@ vis.binds["gebaeudesteuerung-vis"] = {
 			})
 			.catch((err) => {
 				console.error(err);
-			});
+			});*/
 	},
 };
 

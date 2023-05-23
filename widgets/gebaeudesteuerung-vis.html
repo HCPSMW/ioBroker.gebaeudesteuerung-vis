@@ -9,7 +9,11 @@
 <link rel="stylesheet" href="widgets/gebaeudesteuerung-vis/css/style.css" />
 <!-- here you can include so many js-files as you want -->
 <script type="text/javascript" src="widgets/gebaeudesteuerung-vis/js/gebaeudesteuerung-vis.js"></script>
+<script type="text/javascript" src="../../lib/js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="../../socket.io/socket.io.js"></script>
 
+<script type="text/javascript" src="../../js/translate.js"></script>
+<script type="text/javascript" src="../../lib/js/materialize.js"></script>
 <!-- the full description of format in data-vis-attrs can be found here:
 	https://github.com/ioBroker/ioBroker.vis/blob/master/www/js/visEditInspect.js#L39
 
@@ -117,7 +121,8 @@
 			Color: <span style="color: <%= this.data.attr('myColor') %>"><%= this.data.attr('myColor') %></span><br>
 			extraAttr: <%== this.data.attr('extraAttr') %><br>
 			Browser instance: <%= vis.instance %><br>
-			htmlText: <textarea readonly style="width: calc(100% - 10px)"><%== this.data.attr('htmlText') %></textarea><br>
+			htmlTzzext: <textarea readonly style="width: calc(100% - 10px)"><%== this.data.attr('htmlText') %></textarea><br>
+			<div>TEST</div>
 		</div>
 	</div>
 </script>
@@ -135,77 +140,5 @@
 >
 	<div class="vis-widget <%== this.data.attr('class') %>" style="overflow:visible; width: 230px; height: 210px" id="<%= this.data.attr('wid') %>"><%
 		vis.binds['gebaeudesteuerung-vis'].createWidget(this.data.wid, this.view, this.data, this.style);
-	%></div>
-</script>
-
-<script
-	type="text/javascript"
-	id="tplGebaeudesteuerung-visHelper2"
-	type="text/ejs"
-	class="vis-tpl"
-	data-vis-prev='<div id="prev_tplGebaeudesteuerung-visHelper2" style="position: relative; text-align: initial;padding: 4px "><div class="vis-widget_prev " style="width: 280px; height: 159px;" > <div class="gebaeudesteuerung-vis-class vis-widget-prev-body " style="padding:2px"> OID: hm-rpc.0.EEQ0006629.1.STATE<br> OID value: true<br> Color: <span style="color: rgb(128, 0, 0);">#800000</span><br> htmlText: <textarea readonly="" style="width:100%">asda</textarea></div>'
-	data-vis-attrs="oid/id;myColor/color;htmlText/text;"
-	data-vis-attrs0="group.extraGebaeudesteuerung-vis;extraAttr"
-	data-vis-set="gebaeudesteuerung-vis"
-	data-vis-type="helper2"
-	data-vis-name="Helper2"
->
-	function createSVGObjects(objectList) {
-		objectList.forEach(function (object) {
-			var scriptElement = document.createElement("script");
-			scriptElement.setAttribute("id", "tplGebaeudesteuerung-visHelper");
-			scriptElement.setAttribute("type", "text/ejs");
-			scriptElement.setAttribute("class", "vis-tpl");
-			scriptElement.setAttribute(
-				"data-vis-prev",
-				'<div id="prev_tplGebaeudesteuerung-visHelper" style="position: relative; text-align: initial;padding: 4px "><div class="vis-widget_prev " style="width: 280px; height: 159px;" > <div class="gebaeudesteuerung-vis-class vis-widget-prev-body " style="padding:2px"> OID: ' +
-					object.oid +
-					"<br> OID value: " +
-					object.oidValue +
-					'<br> Color: <span style="color: ' +
-					object.myColor +
-					';">' +
-					object.myColor +
-					'</span><br> htmlText: <textarea readonly="" style="width:100%">' +
-					object.htmlText +
-					"</textarea></div>",
-			);
-			scriptElement.setAttribute("data-vis-attrs", "oid/id;myColor/color;htmlText/text;");
-			scriptElement.setAttribute("data-vis-attrs0", "group.extraGebaeudesteuerung-vis;extraAttr");
-			scriptElement.setAttribute("data-vis-set", "gebaeudesteuerung-vis");
-			scriptElement.setAttribute("data-vis-type", "helper");
-			scriptElement.setAttribute("data-vis-name", "Helper");
-
-			var divElement = document.createElement("div");
-			divElement.setAttribute("class", "<%== this.data.attr('class') %>");
-			divElement.setAttribute("style", "overflow:visible; width: 230px; height: 210px");
-			divElement.setAttribute("id", "<%= this.data.attr('wid') %>");
-
-			var innerScriptElement = document.createElement("script");
-			innerScriptElement.textContent =
-				"vis.binds['gebaeudesteuerung-vis'].createWidget(this.data.wid, this.view, this.data, this.style);";
-
-			divElement.appendChild(innerScriptElement);
-			scriptElement.appendChild(divElement);
-			document.body.appendChild(scriptElement);
-		});
-	}
-
-	// Beispielaufruf mit einer Liste von Objekten
-	var objectList = [
-		{
-			oid: "hm-rpc.0.EEQ0006629.1.STATE",
-			oidValue: true,
-			myColor: "#800000",
-			htmlText: "Beispieltext 1",
-		},
-		{
-			oid: "hm-rpc.0.EEQ0006629.2.STATE",
-			oidValue: false,
-			myColor: "#00FF00",
-			htmlText: "Beispieltext 2",
-		},
-	];
-
-	createSVGObjects(objectList);
+	%><div>TEST</div></div>
 </script>
