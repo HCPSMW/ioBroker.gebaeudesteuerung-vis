@@ -1,0 +1,84 @@
+{
+	"common": {
+		"name": "gebaeudesteuerung-vis",
+		"version": "0.0.1",
+		"news": {
+			"0.0.1": {
+				"en": "initial release",
+				"de": "Erstveröffentlichung",
+				"ru": "Начальная версия",
+				"pt": "lançamento inicial",
+				"nl": "Eerste uitgave",
+				"fr": "Première version",
+				"it": "Versione iniziale",
+				"es": "Versión inicial",
+				"pl": "Pierwsze wydanie",
+				"uk": "Початкова версія",
+				"zh-cn": "首次出版"
+			}
+		},
+		"title": "Gebäudesteuerung",
+		"titleLang": {
+			"en": "Gebäudesteuerung",
+			"de": "Gebäudesteuerung",
+			"ru": "Gebäudesteuerung",
+			"pt": "Gebäudesteuerung",
+			"nl": "Gebäudesteuerung",
+			"fr": "Gebäudesteuerung",
+			"it": "Gebäudesteuerung",
+			"es": "Gebäudesteuerung",
+			"pl": "Gebäudesteuerung",
+			"uk": "Gebäudesteuerung",
+			"zh-cn": "Gebäudesteuerung"
+		},
+		"desc": {
+			"en": "gebaeudesteuerung-vis",
+			"de": "gebaeudesteuerung-vis",
+			"ru": "gebaeudesteeuerung-vis",
+			"pt": "gebaeudesteuerung-vis",
+			"nl": "gebaeudesteuerung-vis",
+			"fr": "gebaeudesteuerung-vis",
+			"it": "gebaeudesteuerung-vis",
+			"es": "gebaeudesteuerung-vis",
+			"pl": "gebaeudesteuerung-vis",
+			"uk": "gebaeudesteuerung-vis",
+			"zh-cn": "Gebaeudesteuerung-vis"
+		},
+		"authors": ["admin <sebastian.wien@ctk-gmbh.de>"],
+		"keywords": ["ioBroker", "template", "Smart Home", "home automation"],
+		"license": "MIT",
+		"platform": "Javascript/Node.js",
+		"main": "build/main.js",
+		"icon": "gebaeudesteuerung-vis.png",
+		"enabled": true,
+		"extIcon": "https://raw.githubusercontent.com/HCPSMW/ioBroker.gebaeudesteuerung-vis/main/admin/gebaeudesteuerung-vis.png",
+		"readme": "https://github.com/HCPSMW/ioBroker.gebaeudesteuerung-vis/blob/main/README.md",
+		"loglevel": "info",
+		"restartAdapters": ["vis"],
+		"mode": "daemon",
+		"type": "visualization",
+		"compact": true,
+		"connectionType": "local",
+		"dataSource": "poll",
+		"adminUI": {
+			"config": "materialize"
+		},
+		"dependencies": [
+			{
+				"js-controller": ">=3.3.22"
+			},
+			"vis"
+		],
+		"globalDependencies": [
+			{
+				"admin": ">=5.0.0"
+			}
+		]
+	},
+	"native": {
+		"option1": true,
+		"option2": "42"
+	},
+	"objects": [],
+	"instanceObjects": []
+}
