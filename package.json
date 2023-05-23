@@ -3,8 +3,7 @@
   "version": "0.0.1",
   "description": "gebaeudesteuerung-vis",
   "author": {
-    "name": "admin",
-    "email": "sebastian.wien@ctk-gmbh.de"
+    "name": "admin"
   },
   "homepage": "https://github.com/HCPSMW/ioBroker.gebaeudesteuerung-vis",
   "license": "MIT",

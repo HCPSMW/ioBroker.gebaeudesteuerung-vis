@@ -44,7 +44,7 @@
 			"uk": "gebaeudesteuerung-vis",
 			"zh-cn": "Gebaeudesteuerung-vis"
 		},
-		"authors": ["admin <sebastian.wien@ctk-gmbh.de>"],
+		"authors": ["Me"],
 		"keywords": ["ioBroker", "template", "Smart Home", "home automation"],
 		"license": "MIT",
 		"platform": "Javascript/Node.js",

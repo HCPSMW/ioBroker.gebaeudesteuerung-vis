@@ -3,7 +3,7 @@
 
 	version: "0.0.1"
 
-	Copyright 2023 admin sebastian.wien@ctk-gmbh.de
+	Copyright 2023 SW
 */
 "use strict";
 
@@ -29,7 +29,7 @@ $.extend(true, systemDictionary, {
 
 // this code can be placed directly in gebaeudesteuerung-vis.html
 vis.binds["gebaeudesteuerung-vis"] = {
-	version: "0.0.1",
+	version: "0.0.2",
 	showVersion: function () {
 		if (vis.binds["gebaeudesteuerung-vis"].version) {
 			console.log("Version gebaeudesteuerung-vis: " + vis.binds["gebaeudesteuerung-vis"].version);
