@@ -1,10 +1,3 @@
-/*
-	ioBroker.vis gebaeudesteuerung-vis Widget-Set
-
-	version: "0.0.5"
-
-	Copyright 2023 SW
-*/
 "use strict";
 
 /* global $, vis, systemDictionary */
