@@ -50,6 +50,17 @@ class GebaeudesteuerungVis extends utils.Adapter {
 			},
 			native: {},
 		});
+		await this.setObjectNotExistsAsync("testVariable2", {
+			type: "state",
+			common: {
+				name: "testVariable2",
+				type: "boolean",
+				role: "indicator",
+				read: true,
+				write: true,
+			},
+			native: {},
+		});
 
 		// In order to get state updates, you need to subscribe to them. The following line adds a subscription for our variable we have created above.
 		this.subscribeStates("testVariable");

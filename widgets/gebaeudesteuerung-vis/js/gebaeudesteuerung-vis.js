@@ -105,51 +105,30 @@ vis.binds["gebaeudesteuerung-vis"] = {
 			}, 100);
 		}
 
-		vis.conn.getEnums("rooms.og", function (err, state) {
-			if (err) {
-				console.error(err + "sdjp");
-			} else {
-				const [key, value] = Object.entries(state)[0];
+		// Beispiellogik zum Erstellen von divs basierend auf Enums
+		var oid = data.oid; // Annahme: Der Datenpunkt oid wird im Widget-Datenobjekt übergeben
+		var enums = this.getEnums(oid);
 
-				// Access the properties within the value object
-				const type = value.type;
-				const common = value.common;
-				const name = common.name;
-				const enabled = common.enabled;
-				const color = common.color;
-				const desc = common.desc;
-				const members = common.members;
-				const icon = common.icon;
+		if (enums) {
+			for (var i = 0; i < enums.length; i++) {
+				var enumName = enums[i].common.name;
+				var members = enums[i].common.members;
 
-				// Print the extracted values
-				console.log("Key:", key);
-				console.log("Type:", type);
-				console.log("Name:", name);
-				console.log("Enabled:", enabled);
-				console.log("Color:", color);
-				console.log("Description:", desc);
-				console.log("Members:", members);
-				console.log("Icon:", icon);
+				var $enumDiv = $("<div>").addClass("enum-container");
+				var $enumName = $("<h3>").text(enumName);
+				$enumDiv.append($enumName);
+
+				for (var j = 0; j < members.length; j++) {
+					var member = members[j];
+					var $memberDiv = $("<div>").addClass("member-item");
+					var $memberName = $("<span>").text(member);
+					$memberDiv.append($memberName);
+					$enumDiv.append($memberDiv);
+				}
+
+				$div.append($enumDiv);
 			}
-		});
-		// Extract the key and value from the parsed object
-
-		this.log.warn("jiofadhi");
-		/*this.getMembersFromEnum("enum.rooms.og.r204")
-			.then((members) => {
-				let promises = members.map((member) => this.createDivForMember(member));
-				console.log("s" + "a");
-				location = "";
-				return Promise.all(promises);
-			})
-			.then((divs) => {
-				divs.forEach((div) => {
-					$div.append(div);
-				});
-			})
-			.catch((err) => {
-				console.error(err);
-			});*/
+		}
 	},
 };
 
